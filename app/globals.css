@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--font-display: "Playfair Display", Georgia, serif;
+	--font-body: "DM Sans", system-ui, sans-serif;
+	--font-mono: "DM Mono", monospace;
+
+	--navy-950: #04101f;
+	--navy-900: #0a1929;
+	--navy-800: #0d2347;
+	--navy-700: #122d5a;
+	--navy-600: #1b3a6b;
+	--navy-500: #1a5276;
+	--amber: #e8a020;
+	--amber-dark: #c8880e;
+	--sky: #2e86c1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: var(--font-body);
+	color: #1e293b;
+	background: #fff;
+	overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+	background: rgba(232, 160, 32, 0.25);
+	color: #0d2347;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+	background: #1b3a6b;
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #e8a020;
+}
+
+/* Noise texture overlay */
+.noise::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+	background-size: 200px 200px;
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Gradient mesh background */
+.mesh-bg {
+	background-color: #0a1929;
+	background-image:
+		radial-gradient(at 20% 30%, rgba(27, 58, 107, 0.8) 0px, transparent 50%),
+		radial-gradient(at 80% 10%, rgba(26, 82, 118, 0.6) 0px, transparent 50%),
+		radial-gradient(at 50% 80%, rgba(13, 35, 71, 0.9) 0px, transparent 50%),
+		radial-gradient(at 90% 70%, rgba(46, 134, 193, 0.15) 0px, transparent 50%);
+}
+
+/* Grid pattern */
+.grid-pattern {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+	background-size: 72px 72px;
+}
+
+/* Diagonal line pattern */
+.diagonal-pattern {
+	background-image: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 8px,
+		rgba(255, 255, 255, 0.02) 8px,
+		rgba(255, 255, 255, 0.02) 9px
+	);
+}
+
+/* Shimmer effect */
+.shimmer {
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.08) 50%,
+		transparent 100%
+	);
+	background-size: 1000px 100%;
+	animation: shimmer 2.5s linear infinite;
+}
+
+/* Magnetic button effect - handled via JS */
+.magnetic {
+	transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Typography */
+.font-display {
+	font-family: var(--font-display);
+}
+.font-body {
+	font-family: var(--font-body);
+}
+
+/* Gradient text */
+.text-gradient {
+	background: linear-gradient(135deg, #e8a020 0%, #f5c560 50%, #e8a020 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.text-gradient-blue {
+	background: linear-gradient(135deg, #2e86c1 0%, #85c1e9 50%, #2e86c1 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Underline decoration */
+.underline-amber {
+	position: relative;
+	display: inline;
+}
+
+.underline-amber::after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: var(--amber);
+	border-radius: 2px;
+}
+
+/* Card glassmorphism */
+.glass {
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(27, 58, 107, 0.08);
+}
+
+/* Animated counter */
+@keyframes countUp {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Premium divider */
+.divider-amber {
+	height: 1px;
+	background: linear-gradient(90deg, transparent, #e8a020, transparent);
+}
+
+/* Hover lift */
+.hover-lift {
+	transition:
+		transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+		box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 60px rgba(27, 58, 107, 0.18);
+}
+
+/* Cursor dot */
+.cursor-dot {
+	width: 8px;
+	height: 8px;
+	background: var(--amber);
+	border-radius: 50%;
+	position: fixed;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+	width: 36px;
+	height: 36px;
+	border: 1.5px solid rgba(232, 160, 32, 0.6);
+	border-radius: 50%;
+	position: fixed;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ─── TICKER ────────────────────────────────────────────────────────────────
+   The outer wrapper div must have overflow: hidden (done via Tailwind class).
+   .ticker-scroll is the inner element that physically moves across the screen.
+
+   How the seamless loop works:
+     - The ticker items are rendered TWICE inside .ticker-scroll
+     - translateX(-50%) shifts exactly one full set of items off the left edge
+     - Because the second copy is identical, the gap is invisible — it loops forever
+──────────────────────────────────────────────────────────────────────────── */
+@keyframes tickerMove {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.ticker-scroll {
+	display: flex;
+	align-items: center;
+	/* width: max-content is essential — lets all items sit on one line */
+	width: max-content;
+	height: 100%;
+	animation: tickerMove 35s linear infinite;
+	will-change: transform;
+}
+
+/* Pause the scroll on hover for accessibility */
+.ticker-scroll:hover {
+	animation-play-state: paused;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* Form styling */
+.form-input {
+	width: 100%;
+	padding: 14px 18px;
+	border: 1.5px solid #e2e8f0;
+	border-radius: 12px;
+	font-family: var(--font-body);
+	font-size: 0.9rem;
+	color: #1e293b;
+	background: #fff;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
+	outline: none;
+}
+.form-input:focus {
+	border-color: #2e86c1;
+	box-shadow: 0 0 0 3px rgba(46, 134, 193, 0.1);
+}
+.form-input::placeholder {
+	color: #94a3b8;
+}
+
+/* Stagger children via CSS */
+.stagger > *:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.stagger > *:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.stagger > *:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.stagger > *:nth-child(4) {
+	animation-delay: 0.4s;
+}
+.stagger > *:nth-child(5) {
+	animation-delay: 0.5s;
+}
+.stagger > *:nth-child(6) {
+	animation-delay: 0.6s;
+}
