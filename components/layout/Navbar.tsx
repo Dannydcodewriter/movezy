@@ -552,11 +552,11 @@ export default function Navbar() {
 							transition={{ delay: 0.4 }}
 						>
 							<a
-								href="tel:18886683999"
+								href="tel:16473133725"
 								className="flex items-center gap-3 text-white/70 font-body font-semibold"
 							>
 								<Phone size={16} className="text-amber-brand" />
-								1-888-MOVEZY
+								+1 647-3133-725
 							</a>
 							<Link href="/get-a-quote" onClick={() => setMobileOpen(false)}>
 								<motion.button
