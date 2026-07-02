@@ -127,4 +127,4 @@ Or use any Node.js hosting provider.
 
 ---
 
-Built with ❤️ for Canada's moving industry by MOVEZY.
+Built with ❤️  by Chukwuka Daniel.
