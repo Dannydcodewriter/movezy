@@ -1,6 +1,8 @@
 import HeroSection from '@/components/sections/HeroSection'
+import ServiceMarquee from '@/components/sections/ServiceMarquee'
 import WhyUsSection from '@/components/sections/WhyUsSection'
 import ServicesSection from '@/components/sections/ServicesSection'
+import MoveCleanSection from '@/components/sections/MoveCleanSection'
 import HowItWorksSection from '@/components/sections/HowItWorksSection'
 import StatsSection from '@/components/sections/StatsSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
@@ -10,8 +12,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <WhyUsSection />
+      <ServiceMarquee />
       <ServicesSection />
+      <MoveCleanSection />
+      <WhyUsSection />
       <StatsSection />
       <HowItWorksSection />
       <TestimonialsSection />

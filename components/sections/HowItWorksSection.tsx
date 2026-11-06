@@ -7,25 +7,25 @@ import { useRef, useState, useEffect } from 'react'
 const steps = [
 	{
 		num: "01",
-		title: "Tell Us About Your Move",
-		desc: "Tell us where you're moving, your home size, and your preferred date. Takes under 3 minutes, no phone calls required.",
+		title: "Tell Us What You Need",
+		desc: "Moving, cleaning, or both? Share your address, home size and preferred date. Takes under 3 minutes, no phone calls required.",
 		icon: "📋",
 		detail:
-			"Our simple form guides you through everything our team needs to know. Moving from Toronto to Vancouver? Elevator bookings, parking permits, and special items, just tell us once and our team handles the rest.",
+			"Our simple form guides you through everything our team needs to know. Elevator bookings, parking permits, special items or a landlord's move-out checklist, just tell us once and our team handles the rest.",
 		tags: ["3-min form", "No account needed", "Instant confirmation"],
 	},
 	{
 		num: "02",
-		title: "Receive Your Quotes",
-		desc: "Our team reviews your move and sends you a transparent, binding price. Usually within 30 minutes.",
+		title: "Receive Your Quote",
+		desc: "Our team reviews your request and sends you a transparent, binding price. Usually within 30 minutes.",
 		icon: "💬",
 		detail:
-			"This isn't a ballpark estimate. MOVEZY provides an itemized, binding price for your move. What you see is what you pay. Period.",
+			"This isn't a ballpark estimate. MOVEZY provides an itemized, binding price for your move, your clean, or both. What you see is what you pay. Period.",
 		tags: ["Binding quotes", "< 30 mins response", "No hidden add-ons"],
 	},
 	{
 		num: "03",
-		title: "Confirm Your Move",
+		title: "Confirm Your Booking",
 		desc: "Review your quote, ask any questions, and confirm your booking. Read verified reviews from past MOVEZY customers.",
 		icon: "⚖️",
 		detail:
@@ -35,11 +35,11 @@ const steps = [
 	{
 		num: "04",
 		title: "We Show Up & Get It Done",
-		desc: "Secure your booking with a small deposit via Stripe. Our crew arrives on time, handles everything professionally, and your remaining balance is only released when the job is done.",
+		desc: "Secure your booking with a small deposit via Stripe. Our movers and cleaners arrive on time, handle everything professionally, and your remaining balance is only released when the job is done.",
 		icon: "✅",
 		detail:
-			"Your money is protected from the moment you book. Payment is only released to our team after you confirm a successful, damage-free move. No move completed to your satisfaction, no charge.",
-		tags: ["Stripe secured", "Full insurance", "Move guarantee"],
+			"Your money is protected from the moment you book. Payment is only released to our team after you confirm a successful, damage-free move or a spotless clean. Not done to your satisfaction, no charge.",
+		tags: ["Stripe secured", "Full insurance", "Satisfaction guarantee"],
 	},
 ];
 
@@ -78,10 +78,10 @@ export default function HowItWorksSection() {
 						className="font-display font-black text-navy-800 mb-4"
 						style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
 					>
-						Moving Made{" "}
-						<span className="italic" style={{ color: "var(--amber)" }}>
-							Effortless.
-						</span>
+						Moving &amp; Cleaning,{" "}
+							<span className="italic" style={{ color: "var(--amber)" }}>
+								Made Effortless.
+							</span>
 					</motion.h2>
 					<motion.p
 						initial={{ opacity: 0, y: 20 }}
@@ -173,9 +173,17 @@ export default function HowItWorksSection() {
 								{/* BG decoration */}
 								<div className="absolute inset-0 grid-pattern opacity-30" />
 								<div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[80px] bg-amber-brand/20" />
+									<div className="absolute bottom-0 left-0 w-48 h-48 rounded-full blur-[80px] bg-mint-brand/15" />
 
 								<div className="relative z-10">
-									<div className="text-6xl mb-6">{steps[active].icon}</div>
+									<motion.div
+										className="text-6xl mb-6 inline-block"
+										initial={{ scale: 0.3, rotate: -20 }}
+										animate={{ scale: 1, rotate: 0 }}
+										transition={{ type: "spring", stiffness: 260, damping: 14 }}
+									>
+										{steps[active].icon}
+									</motion.div>
 									<div className="font-display font-black text-amber-brand text-sm mb-3 tracking-widest uppercase">
 										Step {steps[active].num}
 									</div>
