@@ -1,418 +1,357 @@
-// 'use client'
-
-// import { motion } from 'framer-motion'
-// import Link from 'next/link'
-// import { Check, ArrowRight } from 'lucide-react'
-// import CtaSection from '@/components/sections/CtaSection'
-
-// const services = [
-//   {
-//     emoji: '🏠', title: 'Residential Moving', price: 'From $249',
-//     badge: 'Most Popular',
-//     gradient: 'from-sky-brand to-navy-600',
-//     desc: 'From studio apartments to 6-bedroom homes, our residential moving crews handle everything with care. We disassemble furniture, wrap belongings in professional moving blankets, and reassemble everything in your new home.',
-//     features: [
-//       'Full furniture disassembly & reassembly',
-//       'Premium moving blankets & shrink wrap',
-//       'Floor & doorway protection',
-//       'Elevator & parking coordination',
-//       'Condo move-in/out management',
-//       'Same-day moves available',
-//     ],
-//   },
-//   {
-//     emoji: '🏢', title: 'Commercial Moving', price: 'Custom Quote',
-//     gradient: 'from-navy-600 to-navy-800',
-//     desc: 'Weekend office relocations, multi-floor corporate moves, retail store transfers. Our commercial teams work nights and weekends so your business opens Monday morning without missing a beat.',
-//     features: [
-//       'Weekend & after-hours moving',
-//       'IT equipment & server room moves',
-//       'Full workstation disassembly',
-//       'File & document handling',
-//       'Retail store transfers',
-//       'Zero business downtime',
-//     ],
-//   },
-//   {
-//     emoji: '🛣️', title: 'Long-Distance Moving', price: 'From $899',
-//     badge: '🇨🇦 Canada-Wide',
-//     gradient: 'from-amber-dark to-amber-brand',
-//     desc: 'Cross-province moves from Victoria to Halifax, handled with GPS tracking, binding quotes, and full insurance. Our long-distance crews are licensed interprovincial carriers with decades of cross-Canada experience.',
-//     features: [
-//       'GPS shipment tracking',
-//       'Binding price guarantees',
-//       'Full liability insurance',
-//       'Interprovincial licensing',
-//       'Dedicated move coordinator',
-//       'Custom delivery windows',
-//     ],
-//   },
-//   {
-//     emoji: '📦', title: 'Packing & Unpacking', price: 'From $149',
-//     gradient: 'from-green-700 to-green-600',
-//     desc: 'Professional packing crews who treat your belongings like their own. Every fragile item individually wrapped. Every box labelled by room and contents. Every wardrobe packed in garment boxes.',
-//     features: [
-//       'Professional packing materials',
-//       'Fragile item specialty wrapping',
-//       'Room-by-room labelling system',
-//       'Wardrobe boxes for clothing',
-//       'Dish packing & cell kits',
-//       'Partial packing available',
-//     ],
-//   },
-//   {
-//     emoji: '🏭', title: 'Storage Solutions', price: 'From $89/mo',
-//     gradient: 'from-purple-700 to-purple-600',
-//     desc: 'Secure, climate-controlled storage facilities across Canada. Short-term between moves or long-term for renovations and downsizing. Full inventory management and anytime access.',
-//     features: [
-//       'Climate-controlled facilities',
-//       'Digital inventory management',
-//       'Anytime access to belongings',
-//       'Short & long-term options',
-//       'Full insurance coverage',
-//       'Free pickup & delivery',
-//     ],
-//   },
-//   {
-//     emoji: '🎹', title: 'Specialty Items', price: 'Custom Quote',
-//     badge: 'White Glove',
-//     gradient: 'from-rose-700 to-rose-600',
-//     desc: 'Pianos, fine art, antiques, wine collections, safes, pool tables. Specialty crews with the certifications, equipment, and experience to move the irreplaceable without a scratch.',
-//     features: [
-//       'Piano moving (all types)',
-//       'Fine art & antique handling',
-//       'Crating & custom packaging',
-//       'Climate-controlled transport',
-//       'White-glove delivery',
-//       'Insurance up to $1M',
-//     ],
-//   },
-// ]
-
-// export default function ServicesPageContent() {
-//   return (
-//     <>
-//       {/* Hero */}
-//       <section className="relative mesh-bg pt-40 pb-24 overflow-hidden">
-//         <div className="absolute inset-0 grid-pattern" />
-//         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             className="inline-flex items-center gap-2 bg-amber-brand/15 border border-amber-brand/30 rounded-full px-4 py-1.5 mb-6"
-//           >
-//             <span className="font-mono text-[0.68rem] font-medium text-amber-brand uppercase tracking-[2px]">
-//               🚛 Our Services
-//             </span>
-//           </motion.div>
-//           <motion.h1
-//             initial={{ opacity: 0, y: 24 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ delay: 0.1 }}
-//             className="font-display font-black text-white leading-tight mb-5"
-//             style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
-//           >
-//             Every Move,{' '}
-//             <span className="text-gradient italic">Covered.</span>
-//           </motion.h1>
-//           <motion.p
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ delay: 0.2 }}
-//             className="font-body text-white/60 text-lg font-light max-w-xl mx-auto"
-//           >
-//             Six specialized services, 300+ vetted movers, and one platform built for Canada.
-//           </motion.p>
-//           <nav className="font-body text-sm text-white/40 mt-6">
-//             <Link href="/" className="hover:text-amber-brand transition-colors">Home</Link>
-//             <span className="mx-2">/</span>
-//             <span className="text-amber-brand">Services</span>
-//           </nav>
-//         </div>
-//       </section>
-
-//       {/* Services */}
-//       <section className="bg-white py-20">
-//         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-//           <div className="flex flex-col gap-16">
-//             {services.map((s, i) => (
-//               <motion.div
-//                 key={s.title}
-//                 initial={{ opacity: 0, y: 40 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true, margin: '-60px' }}
-//                 transition={{ duration: 0.5 }}
-//                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-//               >
-//                 {/* Visual */}
-//                 <div className={`relative rounded-3xl overflow-hidden min-h-[300px] flex items-center justify-center bg-gradient-to-br ${s.gradient} ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-//                   <span className="text-8xl">{s.emoji}</span>
-//                   {s.badge && (
-//                     <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm text-white font-mono text-[0.65rem] font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border border-white/20">
-//                       {s.badge}
-//                     </div>
-//                   )}
-//                   <div className="absolute bottom-4 right-4 bg-black/20 backdrop-blur-sm text-white font-body font-bold px-4 py-2 rounded-xl">
-//                     {s.price}
-//                   </div>
-//                 </div>
-
-//                 {/* Content */}
-//                 <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-//                   <h2 className="font-display font-black text-navy-800 mb-4" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>
-//                     {s.title}
-//                   </h2>
-//                   <p className="font-body text-slate-500 text-base leading-relaxed font-light mb-7">{s.desc}</p>
-//                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-//                     {s.features.map((f) => (
-//                       <li key={f} className="flex items-start gap-2.5 font-body text-sm text-navy-700">
-//                         <Check size={15} className="text-green-500 flex-shrink-0 mt-0.5" />
-//                         {f}
-//                       </li>
-//                     ))}
-//                   </ul>
-//                   <Link href="/get-a-quote">
-//                     <motion.button
-//                       whileHover={{ scale: 1.02, y: -1 }}
-//                       whileTap={{ scale: 0.97 }}
-//                       className="bg-amber-brand text-navy-800 font-body font-bold px-7 py-3.5 rounded-xl inline-flex items-center gap-2 hover:bg-amber-400 transition-colors"
-//                     >
-//                       Get a Free Quote <ArrowRight size={16} />
-//                     </motion.button>
-//                   </Link>
-//                 </div>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       <CtaSection />
-//     </>
-//   )
-// }
-
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, ArrowDown } from "lucide-react";
 import CtaSection from "@/components/sections/CtaSection";
+import { ServiceMedia } from "@/components/sections/ServicesSection";
+import {
+	movingServices,
+	cleaningServices,
+	type ServiceItem,
+} from "@/lib/services";
+import { Eyebrow, MaskReveal, TiltCard } from "@/components/ui/motion";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// HOW TO ADD YOUR IMAGES:
-// 1. Create the folder: public/images/services/
-// 2. Add photos with these exact filenames:
-//    residential.jpg | commercial.jpg | long-distance.jpg
-//    packing.jpg     | storage.jpg    | specialty.jpg
-// Recommended size: 800 × 600px. Free photos at unsplash.com
-// ─────────────────────────────────────────────────────────────────────────────
+// Service photos live in /public/images/services/ and are set via the
+// `image` field in lib/services.ts.
 
-const services = [
-	{
-		image: "/images/services/residential.jpg",
-		title: "Residential Moving",
-		price: "From $249",
-		badge: "Most Popular",
-		desc: "From studio apartments to 6+ bedroom homes, our residential moving crews handle everything with care. We disassemble furniture, wrap belongings in professional moving blankets, and reassemble everything in your new home.",
-		features: [
-			"Full furniture disassembly & reassembly",
-			"Premium moving blankets & shrink wrap",
-			"Floor & doorway protection",
-			"Elevator & parking coordination",
-			"Condo move-in/out management",
-			"Same-day moves available",
-		],
-	},
-	{
-		image: "/images/services/commercial.jpg",
-		title: "Commercial Moving",
-		price: "Custom Quote",
-		desc: "Weekend office relocations, multi-floor corporate moves, retail store transfers. Our commercial teams work nights and weekends so your business opens Monday morning without missing a beat.",
-		features: [
-			"Weekend & after-hours moving",
-			"IT equipment & server room moves",
-			"Full workstation disassembly",
-			"File & document handling",
-			"Retail store transfers",
-			"Zero business downtime",
-		],
-	},
-	{
-		image: "/images/services/long-distance.jpg",
-		title: "Long-Distance Moving",
-		price: "From $899",
-		badge: "🇨🇦 Canada-Wide",
-		desc: "We specialize in long-distance moves from Ontario to Alberta, ensuring a seamless transition managed with expert care. Our licensed interprovincial crews have extensive experience with cross-Canada relocations. You can expect:",
-		features: [
-			"Personalized service from our experienced team",
-			"Binding quotes with genuine prices",
-			"Flexible delivery windows tailored to your schedule",
-			// "Interprovincial licensing",
-			// "Dedicated move coordinator",
-			// "Custom delivery windows",
-		],
-	},
-	{
-		image: "/images/services/packing.jpg",
-		title: "Packing & Unpacking",
-		price: "From $149",
-		desc: "Professional packing crews who treat your belongings like their own. Every fragile item individually wrapped. Every box labelled by room and contents. Every wardrobe packed in garment boxes.",
-		features: [
-			"Professional packing materials",
-			"Fragile item specialty wrapping",
-			"Room-by-room labelling system",
-			"Wardrobe boxes for clothing",
-			"Dish packing & cell kits",
-			"Partial packing available",
-		],
-	},
-	{
-		image: "/images/services/storage.jpg",
-		title: "Storage Solutions",
-		price: "From $89/mo",
-		desc: "Secure, climate-controlled storage facilities across Canada. Short-term between moves or long-term for renovations and downsizing. Full inventory management and anytime access.",
-		features: [
-			"Climate-controlled facilities",
-			"Digital inventory management",
-			"Anytime access to belongings",
-			"Short & long-term options",
-			"Full insurance coverage",
-			"Free pickup & delivery",
-		],
-	},
-	{
-		image: "/images/services/specialty.jpg",
-		title: "Specialty Items",
-		price: "Custom Quote",
-		badge: "White Glove",
-		desc: "Pianos, fine art, antiques, wine collections, safes, pool tables. Specialty crews with the certifications, equipment, and experience to move the irreplaceable without a scratch.",
-		features: [
-			"Piano moving (all types)",
-			"Fine art & antique handling",
-			"Crating & custom packaging",
-			"Climate-controlled transport",
-			"White-glove delivery",
-		],
-	},
-];
+function ServiceRow({ s, i }: { s: ServiceItem; i: number }) {
+	const ref = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start end", "end start"],
+	});
+	// Media drifts slower than the page for a subtle parallax
+	const mediaY = useTransform(scrollYProgress, [0, 1], [22, -22]);
+	const flip = i % 2 === 1;
+	const isCleaning = s.category === "cleaning";
+
+	return (
+		<div
+			id={s.id}
+			ref={ref}
+			className="scroll-mt-40 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+		>
+			<motion.div
+				initial={{ opacity: 0, x: flip ? 60 : -60 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				viewport={{ once: true, margin: "-80px" }}
+				transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+				className={flip ? "lg:order-2" : ""}
+			>
+				<TiltCard
+					max={5}
+					className="group rounded-3xl overflow-hidden shadow-card-xl"
+				>
+					<motion.div style={{ y: mediaY }} className="scale-[1.15]">
+						<ServiceMedia service={s} height={360} iconSize={80} />
+					</motion.div>
+					<div className="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white font-body font-bold px-4 py-2 rounded-xl border border-white/15">
+						{s.price}
+					</div>
+					{s.badge && (
+						<div className="absolute top-4 left-4 bg-black/40 backdrop-blur-sm text-white font-mono text-[0.65rem] font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border border-white/20">
+							{s.badge}
+						</div>
+					)}
+				</TiltCard>
+			</motion.div>
+
+			<div className={flip ? "lg:order-1" : ""}>
+				<motion.p
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true }}
+					className={`font-mono text-[0.7rem] uppercase tracking-[2px] mb-3 ${
+						isCleaning ? "text-mint-dark" : "text-sky-brand"
+					}`}
+				>
+					{isCleaning ? "✨ Cleaning" : "🚛 Moving"} ·{" "}
+					{String(i + 1).padStart(2, "0")}
+				</motion.p>
+				<h3
+					className="font-display font-black text-navy-800 mb-4"
+					style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}
+				>
+					<MaskReveal>{s.title}</MaskReveal>
+				</h3>
+				<motion.p
+					initial={{ opacity: 0, y: 16 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ delay: 0.1 }}
+					className="font-body text-slate-500 text-base leading-relaxed font-light mb-7"
+				>
+					{s.desc}
+				</motion.p>
+				<motion.ul
+					className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8"
+					initial="hidden"
+					whileInView="show"
+					viewport={{ once: true }}
+					variants={{
+						hidden: {},
+						show: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
+					}}
+				>
+					{s.features.map((f) => (
+						<motion.li
+							key={f}
+							variants={{
+								hidden: { opacity: 0, x: -10 },
+								show: { opacity: 1, x: 0 },
+							}}
+							className="flex items-start gap-2.5 font-body text-sm text-navy-700"
+						>
+							<span
+								className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+									isCleaning
+										? "bg-mint-light text-mint-dark"
+										: "bg-green-50 text-green-600"
+								}`}
+							>
+								<Check size={12} strokeWidth={3} />
+							</span>
+							{f}
+						</motion.li>
+					))}
+				</motion.ul>
+				<Link href={`/get-a-quote?service=${s.category}`}>
+					<motion.span
+						whileHover={{ scale: 1.02, y: -1 }}
+						whileTap={{ scale: 0.97 }}
+						className={`font-body font-bold px-7 py-3.5 rounded-xl inline-flex items-center gap-2 transition-colors ${
+							isCleaning
+								? "bg-mint-brand text-navy-900 hover:bg-mint-dark hover:text-white"
+								: "bg-amber-brand text-navy-800 hover:bg-amber-400"
+						}`}
+					>
+						Get a Free Quote <ArrowRight size={16} />
+					</motion.span>
+				</Link>
+			</div>
+		</div>
+	);
+}
+
+function CategoryHeader({
+	id,
+	eyebrow,
+	title,
+	accent,
+	desc,
+	tone,
+}: {
+	id: string;
+	eyebrow: string;
+	title: string;
+	accent: string;
+	desc: string;
+	tone: "amber" | "mint";
+}) {
+	return (
+		<div id={id} className="scroll-mt-40 text-center max-w-2xl mx-auto mb-20">
+			<Eyebrow tone={tone === "mint" ? "mint" : "sky"}>{eyebrow}</Eyebrow>
+			<h2
+				className="font-display font-black text-navy-800 leading-tight mb-4"
+				style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.4rem)" }}
+			>
+				<MaskReveal>
+					{title}{" "}
+					<span
+						className={`italic ${tone === "mint" ? "text-mint-dark" : "text-amber-brand"}`}
+					>
+						{accent}
+					</span>
+				</MaskReveal>
+			</h2>
+			<p className="font-body text-slate-500 font-light leading-relaxed">{desc}</p>
+		</div>
+	);
+}
 
 export default function ServicesPageContent() {
+	const [activeCat, setActiveCat] = useState<"moving" | "cleaning">("moving");
+	const cleaningRef = useRef<HTMLDivElement>(null);
+
+	// Highlight the right tab in the sticky switcher as you scroll
+	useEffect(() => {
+		const el = cleaningRef.current;
+		if (!el) return;
+		const obs = new IntersectionObserver(
+			([entry]) => {
+				setActiveCat(
+					entry.isIntersecting || entry.boundingClientRect.top < 0
+						? "cleaning"
+						: "moving",
+				);
+			},
+			{ rootMargin: "-45% 0px -50% 0px" },
+		);
+		obs.observe(el);
+		return () => obs.disconnect();
+	}, []);
+
 	return (
 		<>
 			{/* Hero */}
-			<section className="relative mesh-bg pt-40 pb-24 overflow-hidden">
+			<section className="relative mesh-bg pt-40 pb-28 overflow-hidden">
 				<div className="absolute inset-0 grid-pattern" />
-				<div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+				<div className="absolute -right-32 top-20 w-[480px] h-[480px] rounded-full blur-[130px] bg-mint-brand/15 pointer-events-none" />
+				<div className="absolute -left-32 bottom-0 w-[480px] h-[480px] rounded-full blur-[130px] bg-amber-brand/10 pointer-events-none" />
+
+				<div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						className="inline-flex items-center gap-2 bg-amber-brand/15 border border-amber-brand/30 rounded-full px-4 py-1.5 mb-6"
+						className="inline-flex items-center gap-2 bg-white/5 border border-white/15 rounded-full px-4 py-1.5 mb-6"
 					>
-						<span className="font-mono text-[0.68rem] font-medium text-amber-brand uppercase tracking-[2px]">
-							🚛 Our Services
+						<span className="font-mono text-[0.68rem] font-medium text-white/80 uppercase tracking-[2px]">
+							🚛 Moving <span className="text-amber-brand">·</span> ✨ Cleaning
 						</span>
 					</motion.div>
-					<motion.h1
-						initial={{ opacity: 0, y: 24 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.1 }}
+					<h1
 						className="font-display font-black text-white leading-tight mb-5"
-						style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
+						style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)" }}
 					>
-						Every Move, <span className="text-gradient italic">Covered.</span>
-					</motion.h1>
+						<MaskReveal delay={0.1}>Every Move. Every Clean.</MaskReveal>
+						<MaskReveal delay={0.25}>
+							<span className="text-gradient italic">Covered.</span>
+						</MaskReveal>
+					</h1>
 					<motion.p
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.2 }}
-						className="font-body text-white/60 text-lg font-light max-w-xl mx-auto"
+						transition={{ delay: 0.4 }}
+						className="font-body text-white/60 text-lg font-light max-w-xl mx-auto mb-12"
 					>
-						Six specialized services, our own trained movers, and one company
-						built for Canada.
+						Twelve services, one in-house team of trained movers and
+						professional cleaners, built for Canada.
 					</motion.p>
-					<nav className="font-body text-sm text-white/40 mt-6">
-						<Link href="/" className="hover:text-amber-brand transition-colors">
-							Home
-						</Link>
-						<span className="mx-2">/</span>
-						<span className="text-amber-brand">Services</span>
-					</nav>
+
+					{/* Two category cards */}
+					<div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto text-left">
+						{[
+							{
+								href: "#moving",
+								emoji: "🚛",
+								title: "Moving Services",
+								sub: "Residential, commercial, long-distance, packing, storage & specialty items.",
+								ring: "hover:border-amber-brand/60",
+								chip: "bg-amber-brand/15 text-amber-brand",
+							},
+							{
+								href: "#cleaning",
+								emoji: "✨",
+								title: "Cleaning Services",
+								sub: "Move-in/out, deep cleaning, regular home, office, post-renovation & carpets.",
+								ring: "hover:border-mint-brand/60",
+								chip: "bg-mint-brand/15 text-mint-brand",
+							},
+						].map((c, i) => (
+							<motion.a
+								key={c.href}
+								href={c.href}
+								initial={{ opacity: 0, y: 30 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 0.5 + i * 0.1 }}
+								whileHover={{ y: -6 }}
+								className={`group glass rounded-3xl p-6 border border-white/10 transition-colors ${c.ring}`}
+							>
+								<span
+									className={`inline-flex w-12 h-12 rounded-2xl items-center justify-center text-2xl mb-4 ${c.chip}`}
+								>
+									{c.emoji}
+								</span>
+								<h2 className="font-display font-bold text-white text-xl mb-2">
+									{c.title}
+								</h2>
+								<p className="font-body text-white/55 text-sm font-light leading-relaxed mb-4">
+									{c.sub}
+								</p>
+								<span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-white/80 group-hover:text-white">
+									Explore{" "}
+									<motion.span
+										animate={{ y: [0, 3, 0] }}
+										transition={{ duration: 1.4, repeat: Infinity }}
+									>
+										<ArrowDown size={14} />
+									</motion.span>
+								</span>
+							</motion.a>
+						))}
+					</div>
 				</div>
 			</section>
 
-			{/* Services */}
-			<section className="bg-white py-20">
-				<div className="max-w-7xl mx-auto px-6 lg:px-8">
-					<div className="flex flex-col gap-16">
-						{services.map((s, i) => (
-							<motion.div
-								key={s.title}
-								initial={{ opacity: 0, y: 40 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-60px" }}
-								transition={{ duration: 0.5 }}
-								className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-							>
-								{/* Visual — photo */}
-								<div
-									className={`relative rounded-3xl overflow-hidden min-h-[340px] ${i % 2 === 1 ? "lg:order-2" : ""}`}
-								>
-									<img
-										src={s.image}
-										alt={s.title}
-										className="w-full h-full object-cover absolute inset-0"
-									/>
-									{/* Gradient overlay for text legibility */}
-									<div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
-									{/* Price — bottom right */}
-									<div className="absolute bottom-4 right-4 bg-black/40 backdrop-blur-sm text-white font-body font-bold px-4 py-2 rounded-xl border border-white/15">
-										{s.price}
-									</div>
-									{/* Badge — top left */}
-									{s.badge && (
-										<div className="absolute top-4 left-4 bg-black/40 backdrop-blur-sm text-white font-mono text-[0.65rem] font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border border-white/20">
-											{s.badge}
-										</div>
-									)}
-								</div>
+			{/* Sticky category switcher */}
+			<div className="sticky top-[84px] z-30 flex justify-center pointer-events-none -mt-7">
+				<div className="pointer-events-auto inline-flex bg-white/90 backdrop-blur-xl rounded-2xl p-1.5 shadow-card-hover border border-slate-100">
+					{(["moving", "cleaning"] as const).map((c) => (
+						<a
+							key={c}
+							href={`#${c}`}
+							className={`relative px-6 sm:px-8 py-2.5 rounded-xl font-body font-bold text-sm transition-colors ${
+								activeCat === c ? "text-white" : "text-slate-500 hover:text-navy-800"
+							}`}
+						>
+							{activeCat === c && (
+								<motion.span
+									layoutId="services-page-cat"
+									className={`absolute inset-0 rounded-xl ${
+										c === "moving"
+											? "bg-navy-800"
+											: "bg-gradient-to-r from-mint-dark to-mint-brand"
+									}`}
+									transition={{ type: "spring", stiffness: 380, damping: 30 }}
+								/>
+							)}
+							<span className="relative">
+								{c === "moving" ? "🚛 Moving" : "✨ Cleaning"}
+							</span>
+						</a>
+					))}
+				</div>
+			</div>
 
-								{/* Content */}
-								<div className={i % 2 === 1 ? "lg:order-1" : ""}>
-									<h2
-										className="font-display font-black text-navy-800 mb-4"
-										style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}
-									>
-										{s.title}
-									</h2>
-									<p className="font-body text-slate-500 text-base leading-relaxed font-light mb-7">
-										{s.desc}
-									</p>
-									<ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-										{s.features.map((f) => (
-											<li
-												key={f}
-												className="flex items-start gap-2.5 font-body text-sm text-navy-700"
-											>
-												<Check
-													size={15}
-													className="text-green-500 flex-shrink-0 mt-0.5"
-												/>
-												{f}
-											</li>
-										))}
-									</ul>
-									<Link href="/get-a-quote">
-										<motion.button
-											whileHover={{ scale: 1.02, y: -1 }}
-											whileTap={{ scale: 0.97 }}
-											className="bg-amber-brand text-navy-800 font-body font-bold px-7 py-3.5 rounded-xl inline-flex items-center gap-2 hover:bg-amber-400 transition-colors"
-										>
-											Get a Free Quote <ArrowRight size={16} />
-										</motion.button>
-									</Link>
-								</div>
-							</motion.div>
+			{/* Moving */}
+			<section className="bg-white pt-24 pb-24">
+				<div className="max-w-7xl mx-auto px-6 lg:px-8">
+					<CategoryHeader
+						id="moving"
+						eyebrow="Moving Services"
+						title="Every Move,"
+						accent="Handled."
+						desc="From a studio across town to an office across provinces, our trained, insured movers take care of every box and every detail."
+						tone="amber"
+					/>
+					<div className="flex flex-col gap-28">
+						{movingServices.map((s, i) => (
+							<ServiceRow key={s.id} s={s} i={i} />
+						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Cleaning */}
+			<section
+				ref={cleaningRef}
+				className="relative bg-gradient-to-b from-mint-light via-white to-white pt-24 pb-28 overflow-hidden"
+			>
+				<div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full blur-[140px] bg-mint-brand/15 pointer-events-none" />
+				<div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+					<CategoryHeader
+						id="cleaning"
+						eyebrow="Cleaning Services"
+						title="Every Corner,"
+						accent="Spotless."
+						desc="Professional cleaners who show up on time and leave your home or workplace fresh, whether you're moving or staying put."
+						tone="mint"
+					/>
+					<div className="flex flex-col gap-28">
+						{cleaningServices.map((s, i) => (
+							<ServiceRow key={s.id} s={s} i={i} />
 						))}
 					</div>
 				</div>

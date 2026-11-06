@@ -5,6 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
+import { Magnetic } from "@/components/ui/motion";
 
 export default function CtaSection() {
 	const ref = useRef(null);
@@ -38,24 +39,24 @@ export default function CtaSection() {
 						className="text-center lg:text-left"
 					>
 						<p className="font-mono text-[0.7rem] font-medium text-navy-800/60 uppercase tracking-[2px] mb-4">
-							🚛 Get started today
+							🚛 ✨ Get started today
 						</p>
 						<h2
 							className="font-display font-black text-navy-800 leading-tight mb-4"
 							style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)" }}
 						>
-							Your Perfect Move
+							Your Move. Your Clean.
 							<br />
-							Starts With a Quote.
+							One Free Quote.
 						</h2>
 						<p className="font-body text-navy-700/70 font-light text-base max-w-md">
-							Join 300+ Canadians who trusted MOVEZY. Free quotes in 30 minutes,
-							our movers get to you quickly.
+							Join 300+ Canadians who trusted MOVEZY. Free quotes in 30 minutes
+							for moving, cleaning, or both.
 						</p>
 						<div className="flex flex-wrap gap-5 mt-6 justify-center lg:justify-start">
 							{[
 								"No commitment required",
-								"100% Canadian movers",
+								"Insured movers & cleaners",
 								"Zero hidden fees",
 							].map((t) => (
 								<span
@@ -74,21 +75,29 @@ export default function CtaSection() {
 						transition={{ duration: 0.6, delay: 0.1 }}
 						className="flex flex-col items-center gap-4"
 					>
-						<Link href="/get-a-quote">
-							<motion.button
-								whileHover={{ scale: 1.04, y: -3 }}
-								whileTap={{ scale: 0.97 }}
-								className="bg-navy-800 text-white font-body font-bold text-lg px-10 py-5 rounded-2xl shadow-card-xl flex items-center gap-3 hover:bg-navy-700 transition-colors"
-							>
-								Get My Free Quote <ArrowRight size={20} />
-							</motion.button>
-						</Link>
+						<Magnetic>
+							<Link href="/get-a-quote">
+								<motion.span
+									whileHover={{ scale: 1.04 }}
+									whileTap={{ scale: 0.97 }}
+									className="bg-navy-800 text-white font-body font-bold text-lg px-10 py-5 rounded-2xl shadow-card-xl flex items-center gap-3 hover:bg-navy-700 transition-colors"
+								>
+									Get My Free Quote{" "}
+									<motion.span
+										animate={{ x: [0, 4, 0] }}
+										transition={{ duration: 1.4, repeat: Infinity }}
+									>
+										<ArrowRight size={20} />
+									</motion.span>
+								</motion.span>
+							</Link>
+						</Magnetic>
 						<a
-							href="tel:16473133725"
+							href="tel:+16473133725"
 							className="flex items-center gap-2 font-body font-semibold text-navy-700 hover:text-navy-900 transition-colors"
 						>
 							<Phone size={15} />
-							Or call +1 647-3133-725
+							Or call +1 647-313-3725
 						</a>
 					</motion.div>
 				</div>

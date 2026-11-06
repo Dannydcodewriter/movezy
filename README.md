@@ -1,10 +1,11 @@
 # MOVEZY — Canada's Premium Moving Platform
 
-A professional, production-ready Next.js 14 website built with TypeScript, Tailwind CSS, and Framer Motion.
+A professional, production-ready Next.js 16 website built with TypeScript, Tailwind CSS, and Framer Motion.
 
 ## 🚀 Tech Stack
 
-- **Next.js 14** — App Router, Server Components
+- **Next.js 16 + React 19** — App Router, Server Components
+- **Resend** — Emails quote requests to the helpdesk inbox
 - **TypeScript** — Full type safety
 - **Tailwind CSS** — Utility-first styling with custom design tokens
 - **Framer Motion** — Premium animations and transitions
@@ -16,8 +17,9 @@ A professional, production-ready Next.js 14 website built with TypeScript, Tailw
 - ✨ **Framer Motion animations** — Hero parallax, scroll-triggered reveals, page transitions, hover effects
 - 🖱️ **Custom cursor** — Amber dot + ring, hover state changes
 - 📱 **Fully responsive** — Mobile-first, every breakpoint tested
-- 🌐 **7 pages** — Homepage, Services, About, Reviews, Blog, Get a Quote
-- 🎯 **Multi-step quote form** — 3-step animated form with success state
+- 🌐 **6 pages** — Homepage, Services, About, Reviews, Blog, Get a Quote
+- 🎯 **Multi-step quote form** — 3-step animated form that emails each request via Resend
+- 📍 **Address autocomplete** — Free OpenStreetMap (Nominatim) suggestions, Canada only
 - 📊 **Animated counters** — Stats animate on scroll into view
 - 🎠 **Interactive stepper** — Auto-advancing how-it-works with progress bars
 - 🔍 **Review filtering** — Filter reviews by service category
@@ -26,11 +28,12 @@ A professional, production-ready Next.js 14 website built with TypeScript, Tailw
 ## 📁 Project Structure
 
 ```
-movezy-nextjs/
+movezy/
 ├── app/
 │   ├── layout.tsx           # Root layout with fonts & metadata
 │   ├── page.tsx             # Homepage
 │   ├── globals.css          # Global styles + Tailwind
+│   ├── api/send-quote/      # POST endpoint that emails quote requests
 │   ├── about/               # About page
 │   ├── services/            # Services page
 │   ├── reviews/             # Reviews page
@@ -51,6 +54,7 @@ movezy-nextjs/
 │   └── ui/
 │       ├── Button.tsx       # Reusable button component
 │       ├── AnimatedCounter.tsx
+│       ├── AddressAutocomplete.tsx
 │       └── CustomCursor.tsx
 ├── lib/
 │   └── utils.ts             # cn() helper
@@ -63,14 +67,18 @@ movezy-nextjs/
 ## 🛠️ Setup & Installation
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 20.9+
 - npm or yarn
+- A [Resend](https://resend.com) API key (for the quote form)
 
 ### Install & Run
 
 ```bash
 # Install dependencies
 npm install
+
+# Add your environment variables
+cp .env.example .env.local   # then set RESEND_API_KEY
 
 # Start development server
 npm run dev
@@ -121,7 +129,8 @@ npm start
 Deploy to Vercel in one click:
 1. Push to GitHub
 2. Import to [vercel.com](https://vercel.com)
-3. Deploy
+3. Add `RESEND_API_KEY` under Project → Settings → Environment Variables
+4. Deploy
 
 Or use any Node.js hosting provider.
 

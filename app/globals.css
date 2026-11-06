@@ -17,6 +17,7 @@
 	--amber: #e8a020;
 	--amber-dark: #c8880e;
 	--sky: #2e86c1;
+	--mint: #19c3a6;
 }
 
 * {
@@ -125,6 +126,13 @@ body {
 /* Gradient text */
 .text-gradient {
 	background: linear-gradient(135deg, #e8a020 0%, #f5c560 50%, #e8a020 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.text-gradient-mint {
+	background: linear-gradient(135deg, #19c3a6 0%, #7ef0dc 50%, #19c3a6 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -270,7 +278,8 @@ body {
 	overflow: hidden;
 }
 
-/* Form styling */
+/* Form styling — in the components layer so utilities (e.g. pl-10) win */
+@layer components {
 .form-input {
 	width: 100%;
 	padding: 14px 18px;
@@ -291,6 +300,7 @@ body {
 }
 .form-input::placeholder {
 	color: #94a3b8;
+}
 }
 
 /* Stagger children via CSS */

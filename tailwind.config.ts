@@ -30,6 +30,11 @@ const config: Config = {
         slate: {
           muted: '#94A3B8',
         },
+        mint: {
+          brand: '#19C3A6',
+          light: '#E7FBF6',
+          dark: '#0E8C78',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],
@@ -81,6 +86,7 @@ const config: Config = {
       boxShadow: {
         'glow-amber': '0 0 40px rgba(232,160,32,0.3)',
         'glow-navy': '0 0 60px rgba(27,58,107,0.4)',
+        'glow-mint': '0 0 40px rgba(25,195,166,0.3)',
         'card': '0 4px 24px rgba(27,58,107,0.08)',
         'card-hover': '0 20px 60px rgba(27,58,107,0.18)',
         'card-xl': '0 32px 80px rgba(27,58,107,0.24)',
