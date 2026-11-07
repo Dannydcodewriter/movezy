@@ -106,11 +106,11 @@ export default function Footer() {
 						</p>
 						<div className="flex flex-col gap-3 mb-6">
 							<a
-								href="tel:+16473133725"
+								href="tel:+16476977140"
 								className="flex items-center gap-2 text-sm hover:text-amber-brand transition-colors"
 							>
 								<Phone size={13} className="text-amber-brand flex-shrink-0" />
-								+1 647-313-3725
+								+1 647-697-7140
 							</a>
 							<a
 								href="mailto:hello@movezy.ca"

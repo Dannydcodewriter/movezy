@@ -516,7 +516,7 @@ export default function HeroSection() {
 			<div className="hidden xl:block absolute right-10 bottom-24 z-10">
 				<Magnetic>
 					<motion.a
-						href="tel:+16473133725"
+						href="tel:+16476977140"
 						initial={{ opacity: 0, scale: 0.6 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ delay: 1.4, type: "spring", stiffness: 200 }}

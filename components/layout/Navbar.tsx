@@ -199,14 +199,14 @@ export default function Navbar() {
 				{/* Right side — phone number + CTA button */}
 				<div className="hidden lg:flex items-center gap-4">
 					<a
-						href="tel:+16473133725"
+						href="tel:+16476977140"
 						className={cn(
 							"flex items-center gap-2 font-body font-semibold text-sm transition-colors",
 							scrolled ? "text-navy-600" : "text-white/80 hover:text-white",
 						)}
 					>
 						<Phone size={14} className="text-amber-brand" />
-						+1 647-313-3725
+						+1 647-697-7140
 					</a>
 					<Link href="/get-a-quote">
 						<motion.button
@@ -286,11 +286,11 @@ export default function Navbar() {
 							transition={{ delay: 0.4 }}
 						>
 							<a
-								href="tel:+16473133725"
+								href="tel:+16476977140"
 								className="flex items-center gap-3 text-white/70 font-body font-semibold"
 							>
 								<Phone size={16} className="text-amber-brand" />
-								+1 647-313-3725
+								+1 647-697-7140
 							</a>
 							<Link href="/get-a-quote" onClick={() => setMobileOpen(false)}>
 								<motion.button

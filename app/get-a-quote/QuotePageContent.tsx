@@ -280,7 +280,7 @@ export default function QuotePageContent() {
 		} catch (err) {
 			console.error("Submit error:", err);
 			setError(
-				"Something went wrong. Please call us at +1 647-313-3725 or email hello@movezy.ca directly.",
+				"Something went wrong. Please call us at +1 647-697-7140 or email hello@movezy.ca directly.",
 			);
 		} finally {
 			setSubmitting(false);
@@ -485,10 +485,10 @@ export default function QuotePageContent() {
 										<p className="font-body text-sm text-slate-400 mb-5">
 											Questions? Call{" "}
 											<a
-												href="tel:+16473133725"
+												href="tel:+16476977140"
 												className="font-bold text-navy-800 hover:text-amber-dark transition-colors"
 											>
-												+1 647-313-3725
+												+1 647-697-7140
 											</a>
 										</p>
 										<Link href="/">
