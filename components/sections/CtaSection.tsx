@@ -93,11 +93,11 @@ export default function CtaSection() {
 							</Link>
 						</Magnetic>
 						<a
-							href="tel:+16473133725"
+							href="tel:+16476977140"
 							className="flex items-center gap-2 font-body font-semibold text-navy-700 hover:text-navy-900 transition-colors"
 						>
 							<Phone size={15} />
-							Or call +1 647-313-3725
+							Or call +1 647-697-7140
 						</a>
 					</motion.div>
 				</div>
